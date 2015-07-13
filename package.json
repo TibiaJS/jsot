@@ -1,0 +1,36 @@
+{
+  "name": "jsot",
+  "version": "0.1.0",
+  "description": "Javascript OTserv Toolkit",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ranisalt/jsot.git"
+  },
+  "keywords": [
+    "tibia",
+    "otserv",
+    "toolkit",
+    "utils",
+    "management",
+    "tibiajs"
+  ],
+  "author": "Ranieri Althoff <ranisalt+jsot@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ranisalt/jsot/issues"
+  },
+  "homepage": "https://github.com/ranisalt/jsot",
+  "dependencies": {
+    "mysql": "^2.7.0",
+    "sha1": "^1.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.1.3",
+    "mocha": "^2.2.5"
+  }
+}
