@@ -42,7 +42,7 @@ module.exports = function(db) {
             },
             set: function(type) {
                 if (type >= 1 && type <= 5) {
-                    this._type = type
+                    this._type = type;
                 } else {
                     throw new Error('Account type must be between 1 and 5');
                 }
@@ -107,8 +107,6 @@ module.exports = function(db) {
     };
 
     Account.find = function(properties, callback) {
-        var self = this;
-
         if (typeof(properties) === 'number') {
             properties = {id: properties};
         } else if (typeof(properties) === 'string') {
