@@ -63,12 +63,26 @@ describe('Account', function() {
             assert.throws(function() {
                 Account.create(null, '123');
             }, /name not set/);
+
             assert.throws(function() {
                 Account.create('', '123')
             }, /name not set/);
 
             done();
         });
+
+        it('should not accept empty password', function(done) {
+            assert.throws(function() {
+                Account.create('test', '');
+            }, /password not set/);
+
+            assert.throws(function() {
+                Account.create('test', null);
+            }, /password not set/);
+
+            done();
+        });
+
     });
 
     describe('#delete()', function() {
@@ -105,6 +119,21 @@ describe('Account', function() {
                 done();
             });
         });
+
+        it('should not accept empty id or name', function(done) {
+            var account = new Account({
+                name: ''
+            });
+
+            assert.throws(function() {
+                account.fetch(function(err, result) {
+                    if (err) { throw err };
+                });
+            }, /name not set/);
+
+            done();
+        });
+
     });
 
     describe('#find()', function() {
