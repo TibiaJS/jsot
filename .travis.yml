@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+    - node
+    - iojs
+env:
+    - CODECLIMATE_REPO_TOKEN: '68656ecdaba413e9ce3f6baaf528fd0b6bf669b60d971851342cb23c163ae329'
+before_script:
+    - mysql -e 'CREATE DATABASE otserv;'
+    - curl https://raw.githubusercontent.com/ranisalt/forgottenserver/master/schema.sql -O
+    - mysql -u travis otserv < schema.sql
+    - npm i -g istanbul mocha codeclimate-test-reporter
+after_success:
+    - istanbul cover _mocha -- -R spec ./test/*.js
+    - codeclimate < ./coverage/lcov.info
